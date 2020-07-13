@@ -12,93 +12,44 @@ class XylophoneApp extends StatelessWidget {
     player.play('note$soundNumber.wav');
   }
 
+  Expanded buildButton({Color color, int soundNumber, String toWrite}) {
+    return Expanded(
+      child: FlatButton(
+        onPressed: () {
+          playSound(soundNumber);
+        },
+        color: color,
+        child: Text(
+          toWrite,
+          style: TextStyle(fontFamily: 'GrenzeGotisch', fontSize: 20.0),
+        ),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        backgroundColor: Colors.teal.shade700,
+        backgroundColor: Colors.black,
         body: SafeArea(
             child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: <Widget>[
-            FlatButton(
-              padding: EdgeInsets.all(25.0),
-              onPressed: () {
-                playSound(1);
-              },
-              color: Colors.redAccent,
-              child: Text(
-                'Do',
-                style: TextStyle(fontFamily: 'GrenzeGotisch', fontSize: 20.0),
-              ),
-            ),
-            FlatButton(
-              padding: EdgeInsets.all(25.0),
-              onPressed: () {
-                playSound(2);
-              },
-              color: Colors.orangeAccent,
-              child: Text(
-                'Re',
-                style: TextStyle(fontFamily: 'GrenzeGotisch', fontSize: 20.0),
-              ),
-            ),
-            FlatButton(
-              padding: EdgeInsets.all(25.0),
-              onPressed: () {
-                playSound(3);
-              },
-              color: Colors.greenAccent,
-              child: Text(
-                'Mi',
-                style: TextStyle(fontFamily: 'GrenzeGotisch', fontSize: 20.0),
-              ),
-            ),
-            FlatButton(
-              padding: EdgeInsets.all(25.0),
-              onPressed: () {
-                playSound(4);
-              },
-              color: Colors.blueAccent,
-              child: Text(
-                'Fa',
-                style: TextStyle(fontFamily: 'GrenzeGotisch', fontSize: 20.0),
-              ),
-            ),
-            FlatButton(
-              padding: EdgeInsets.all(25.0),
-              onPressed: () {
-                playSound(5);
-              },
-              color: Colors.amberAccent,
-              child: Text(
-                'Sol',
-                style: TextStyle(fontFamily: 'GrenzeGotisch', fontSize: 20.0),
-              ),
-            ),
-            FlatButton(
-              padding: EdgeInsets.all(25.0),
-              onPressed: () {
-                playSound(6);
-              },
-              color: Colors.yellowAccent,
-              child: Text(
-                'La',
-                style: TextStyle(fontFamily: 'GrenzeGotisch', fontSize: 20.0),
-              ),
-            ),
-            FlatButton(
-              padding: EdgeInsets.all(25.0),
-              onPressed: () {
-                playSound(7);
-              },
-              color: Colors.deepPurpleAccent,
-              child: Text(
-                'Ti',
-                style: TextStyle(fontFamily: 'GrenzeGotisch', fontSize: 20.0),
-              ),
-            ),
+            buildButton(color: Colors.redAccent, soundNumber: 1, toWrite: 'Do'),
+            buildButton(
+                color: Colors.orangeAccent, soundNumber: 2, toWrite: 'Re'),
+            buildButton(
+                color: Colors.yellowAccent, soundNumber: 3, toWrite: 'Mi'),
+            buildButton(
+                color: Colors.greenAccent, soundNumber: 4, toWrite: 'Fa'),
+            buildButton(
+                color: Colors.blueAccent, soundNumber: 5, toWrite: 'Sol'),
+            buildButton(
+                color: Colors.amberAccent, soundNumber: 6, toWrite: 'La'),
+            buildButton(
+                color: Colors.purpleAccent, soundNumber: 7, toWrite: 'Ti'),
           ],
         )),
       ),

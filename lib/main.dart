@@ -8,10 +8,15 @@ void main() {
 
 class XylophoneApp extends StatelessWidget {
   final player = AudioCache();
+  void playSound(int soundNumber) {
+    player.play('note$soundNumber.wav');
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
+        backgroundColor: Colors.teal.shade700,
         body: SafeArea(
             child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -20,7 +25,7 @@ class XylophoneApp extends StatelessWidget {
             FlatButton(
               padding: EdgeInsets.all(25.0),
               onPressed: () {
-                player.play('note1.wav');
+                playSound(1);
               },
               color: Colors.redAccent,
               child: Text(
@@ -31,7 +36,7 @@ class XylophoneApp extends StatelessWidget {
             FlatButton(
               padding: EdgeInsets.all(25.0),
               onPressed: () {
-                player.play('note2.wav');
+                playSound(2);
               },
               color: Colors.orangeAccent,
               child: Text(
@@ -42,7 +47,7 @@ class XylophoneApp extends StatelessWidget {
             FlatButton(
               padding: EdgeInsets.all(25.0),
               onPressed: () {
-                player.play('note3.wav');
+                playSound(3);
               },
               color: Colors.greenAccent,
               child: Text(
@@ -53,7 +58,7 @@ class XylophoneApp extends StatelessWidget {
             FlatButton(
               padding: EdgeInsets.all(25.0),
               onPressed: () {
-                player.play('note4.wav');
+                playSound(4);
               },
               color: Colors.blueAccent,
               child: Text(
@@ -64,7 +69,7 @@ class XylophoneApp extends StatelessWidget {
             FlatButton(
               padding: EdgeInsets.all(25.0),
               onPressed: () {
-                player.play('note5.wav');
+                playSound(5);
               },
               color: Colors.amberAccent,
               child: Text(
@@ -75,7 +80,7 @@ class XylophoneApp extends StatelessWidget {
             FlatButton(
               padding: EdgeInsets.all(25.0),
               onPressed: () {
-                player.play('note6.wav');
+                playSound(6);
               },
               color: Colors.yellowAccent,
               child: Text(
@@ -86,7 +91,7 @@ class XylophoneApp extends StatelessWidget {
             FlatButton(
               padding: EdgeInsets.all(25.0),
               onPressed: () {
-                player.play('note7.wav');
+                playSound(7);
               },
               color: Colors.deepPurpleAccent,
               child: Text(
